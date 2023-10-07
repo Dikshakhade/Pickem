@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { createContext, useState } from "react";
+import FirstRound from "./Components/FirstRound.jsx";
+import SecondRound from "./Components/SecondRound.jsx";
+import ThridRound from "./Components/ThridRound.jsx";
+import Buttons from "./Components/Buttons.jsx";
+
+export const Context = createContext();
 
 function App() {
+  const [generate, setGenerate] = useState(1);
+  const [visible, setVisible] = useState(false);
+  const submitHandler = (e) => {
+    e.preventDefault();
+    setVisible(true);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={submitHandler}>Generate</button>
+
+      <div style={{ display: "flex" }}>
+        <Context.Provider value={[generate, setGenerate]}>
+          <Buttons />
+          {visible ? (
+            <div style={{ display: "flex" }}>
+              <FirstRound />
+              <SecondRound />
+              {/* <ThridRound /> */}
+            </div>
+          ) : (
+            ""
+          )}
+        </Context.Provider>
+      </div>
     </div>
   );
 }

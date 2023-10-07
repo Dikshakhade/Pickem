@@ -1,0 +1,32 @@
+{
+  "data": [
+    {
+      "namesOne": [
+        { "id": 0, "name": "A", "status": false },
+        { "id": 1, "name": "B", "status": false },
+        { "id": 2, "name": "C", "status": false },
+        { "id": 3, "name": "D", "status": false },
+        { "id": 4, "name": "E", "status": false },
+        { "id": 5, "name": "F", "status": false },
+        { "id": 6, "name": "G", "status": false },
+        { "id": 7, "name": "H", "status": false },
+        { "id": 8, "name": "I", "status": false },
+        { "id": 9, "name": "J", "status": false },
+        { "id": 10, "name": "K", "status": false }
+      ],
+      "namesTwo": [
+        { "id": 11, "name": "P", "status": false },
+        { "id": 12, "name": "Q", "status": false },
+        { "id": 13, "name": "R", "status": false },
+        { "id": 14, "name": "S", "status": false },
+        { "id": 15, "name": "S", "status": false },
+        { "id": 16, "name": "T", "status": false },
+        { "id": 17, "name": "U", "status": false },
+        { "id": 18, "name": "V", "status": false },
+        { "id": 19, "name": "W", "status": false },
+        { "id": 20, "name": "X", "status": false },
+        { "id": 21, "name": "Y", "status": false }
+      ]
+    }
+  ]
+}
