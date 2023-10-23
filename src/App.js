@@ -1,37 +1,49 @@
-import { createContext, useState } from "react";
-import FirstRound from "./Components/FirstRound.jsx";
-import SecondRound from "./Components/SecondRound.jsx";
-import ThridRound from "./Components/ThridRound.jsx";
-import Buttons from "./Components/Buttons.jsx";
-
-export const Context = createContext();
+import { useEffect, useRef, useState } from "react";
+import Teams1 from "./Components/Teams1";
 
 function App() {
   const [generate, setGenerate] = useState(1);
-  const [visible, setVisible] = useState(false);
-  const submitHandler = (e) => {
-    e.preventDefault();
-    setVisible(true);
-  };
-  return (
-    <div className="App">
-      <button onClick={submitHandler}>Generate</button>
 
-      <div style={{ display: "flex" }}>
-        <Context.Provider value={[generate, setGenerate]}>
-          <Buttons />
-          {visible ? (
-            <div style={{ display: "flex" }}>
-              <FirstRound />
-              <SecondRound />
-              {/* <ThridRound /> */}
-            </div>
-          ) : (
-            ""
-          )}
-        </Context.Provider>
+  let colRef = useRef(null);
+  const handleGenerate = (e) => {
+    setGenerate(parseInt(e.target.innerText));
+  };
+
+  return (
+    <>
+      <div className="button-container" onClick={handleGenerate}>
+        <button>2</button>
+        <button>4</button>
+        <button>8</button>
+        <button>16</button>
+        <button>32</button>
       </div>
-    </div>
+      <div
+        style={{
+          display: "grid",
+          gap: "1%",
+          gridTemplateColumns: ` repeat(${Math.log2(generate) + 1},1fr)`,
+        }}
+      >
+        {[...Array(Math.log2(generate) + 1)].map((a, row) => {
+          return (
+            <div
+              key={row}
+              className="square"
+              id={row}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              {[...Array(2 ** (Math.log2(generate) - row))].map((a, col) => {
+                return <Teams1 id={[row, col]} />;
+              })}
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 }
 
