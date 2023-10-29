@@ -17,7 +17,7 @@ export const namesTwo = [
   { name: "Q", status: false },
   { name: "R", status: false },
   { name: "S", status: false },
-  { name: "S", status: false },
+
   { name: "T", status: false },
   { name: "U", status: false },
   { name: "V", status: false },
